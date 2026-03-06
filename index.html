@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>There Will Come Soft Rains — Reading Activity</title>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:       #0d0f0e;
     --surface:  #141716;
     --card:     #1a1e1c;
     --border:   #2e3330;
-    --accent:   #c8e6c0;
+    --accent:   #ffffff;
     --amber:    #e8c87a;
     --red:      #e07070;
     --muted:    #6a7870;
     --text:     #d4dbd6;
     --text-dim: #8a9890;
-    --glow:     rgba(200,230,192,0.12);
+    --glow:     rgba(255,255,255,0.12);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Source Code Pro', monospace;
-    font-weight: 300;
+    font-weight: 400;
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -67,7 +67,7 @@
   .tag {
     display: inline-block;
     font-family: 'Source Code Pro', monospace;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -78,7 +78,7 @@
   }
   header h1 {
     font-family: 'Special Elite', cursive;
-    font-size: clamp(28px, 5vw, 52px);
+    font-size: clamp(30px, 5vw, 54px);
     font-weight: 400;
     color: var(--text);
     line-height: 1.15;
@@ -87,14 +87,14 @@
   }
   header h1 em { color: var(--accent); font-style: italic; }
   header .byline {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--muted);
     letter-spacing: 2px;
     margin-bottom: 32px;
   }
   .header-clock {
     font-family: 'Special Elite', cursive;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--amber);
     letter-spacing: 2px;
     animation: clockPulse 4s ease-in-out infinite;
@@ -119,7 +119,7 @@
     border-right: 1px solid var(--border);
     color: var(--muted);
     font-family: 'Source Code Pro', monospace;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 14px 8px;
@@ -128,7 +128,7 @@
     position: relative;
   }
   .phase-btn:last-child { border-right: none; }
-  .phase-btn .phase-icon { display: block; font-size: 22px; margin-bottom: 6px; }
+  .phase-btn .phase-icon { display: block; font-size: 24px; margin-bottom: 6px; }
   .phase-btn.active {
     background: var(--card);
     color: var(--accent);
@@ -148,13 +148,13 @@
 
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 400;
     color: var(--text);
     margin-bottom: 6px;
   }
   .section-sub {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     letter-spacing: 1px;
     margin-bottom: 24px;
@@ -170,7 +170,7 @@
   }
   .card:hover { border-color: #3e4a44; }
   .card-label {
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -182,12 +182,12 @@
   .card-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     color: var(--text);
     margin-bottom: 10px;
   }
-  .card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+  .card p { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
 
   textarea, input[type="text"] {
     width: 100%;
@@ -196,8 +196,8 @@
     border-radius: 4px;
     color: var(--text);
     font-family: 'Source Code Pro', monospace;
-    font-size: 13px;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 400;
     padding: 12px 14px;
     resize: vertical;
     outline: none;
@@ -206,7 +206,7 @@
   }
   textarea:focus, input:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 2px rgba(200,230,192,0.08);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
   }
   textarea { min-height: 90px; }
 
@@ -219,9 +219,9 @@
   @media (max-width: 560px) { .predict-grid { grid-template-columns: 1fr; } }
   .predict-item label {
     display: block;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 1px;
-    color: var(--muted);
+    color: var(--text);
     margin-bottom: 6px;
     text-transform: uppercase;
   }
@@ -238,29 +238,29 @@
   .vocab-item:last-child { border-bottom: none; }
   .vocab-word {
     font-family: 'Special Elite', cursive;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--amber);
     line-height: 1.3;
   }
-  .vocab-word span { display: block; font-family: 'Source Code Pro', monospace; font-size: 10px; color: var(--muted); margin-top: 2px; letter-spacing: 1px; }
+  .vocab-word span { display: block; font-family: 'Source Code Pro', monospace; font-size: 14px; color: var(--muted); margin-top: 2px; letter-spacing: 1px; }
   @media (max-width: 500px) { .vocab-item { grid-template-columns: 1fr; } }
 
   .quote-block {
     border-left: 2px solid var(--accent);
     padding: 14px 18px;
     margin-bottom: 16px;
-    background: rgba(200,230,192,0.03);
+    background: rgba(255,255,255,0.03);
     border-radius: 0 4px 4px 0;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 15px;
+    font-size: 17px;
     color: var(--text-dim);
     line-height: 1.7;
   }
   .quote-timestamp {
     font-family: 'Source Code Pro', monospace;
     font-style: normal;
-    font-size: 10px;
+    font-size: 14px;
     color: var(--amber);
     letter-spacing: 2px;
     margin-bottom: 6px;
@@ -295,7 +295,7 @@
   }
   .timeline-entry.fire::before { background: var(--red); }
   .timeline-time {
-    font-size: 10px;
+    font-size: 14px;
     color: var(--amber);
     letter-spacing: 2px;
     margin-bottom: 4px;
@@ -312,9 +312,9 @@
     grid-template-columns: 100px 1fr 60px;
     gap: 10px;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
   }
-  .mood-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: 10px; }
+  .mood-label { color: var(--text); text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
   .mood-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -334,7 +334,7 @@
     transition: transform 0.1s;
   }
   .mood-slider::-webkit-slider-thumb:hover { transform: scale(1.3); }
-  .mood-val { color: var(--accent); font-size: 12px; text-align: right; font-weight: 400; }
+  .mood-val { color: var(--accent); font-size: 14px; text-align: right; font-weight: 400; }
 
   .checklist { list-style: none; }
   .checklist li {
@@ -343,7 +343,7 @@
     gap: 12px;
     padding: 10px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-dim);
     cursor: pointer;
     transition: color 0.2s;
@@ -358,7 +358,7 @@
     margin-top: 1px;
     display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
-    font-size: 11px;
+    font-size: 13px;
     color: transparent;
   }
   .checklist li.checked .check-box {
@@ -368,10 +368,10 @@
   }
   .checklist li.checked { text-decoration: line-through; color: var(--muted); }
 
-  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 15px; }
   .compare-table th {
     font-family: 'Source Code Pro', monospace;
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--accent);
@@ -386,7 +386,7 @@
     vertical-align: top;
   }
   .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table td:first-child { color: var(--amber); font-family: 'Special Elite', cursive; font-size: 14px; width: 110px; }
+  .compare-table td:first-child { color: var(--amber); font-family: 'Special Elite', cursive; font-size: 16px; width: 110px; }
 
   .btn {
     display: inline-flex;
@@ -396,7 +396,7 @@
     border: 1px solid var(--accent);
     color: var(--accent);
     font-family: 'Source Code Pro', monospace;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 10px 20px;
@@ -418,7 +418,7 @@
     border: 1px solid var(--accent);
     color: var(--accent);
     font-family: 'Source Code Pro', monospace;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 1px;
     padding: 10px 18px;
     border-radius: 4px;
@@ -445,7 +445,7 @@
     transition: width 0.5s ease;
   }
   .progress-label {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     letter-spacing: 1px;
     text-align: right;
@@ -455,13 +455,13 @@
   .divider { height: 1px; background: var(--border); margin: 28px 0; opacity: 0.5; }
 
   .poem-box {
-    background: rgba(200,230,192,0.03);
-    border: 1px solid rgba(200,230,192,0.15);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 6px;
     padding: 28px 32px;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 2;
     color: var(--text-dim);
     text-align: center;
@@ -476,7 +476,7 @@
     transform: translateX(-50%);
     background: var(--card);
     padding: 0 12px;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 2px;
     color: var(--muted);
     font-style: normal;
@@ -485,7 +485,7 @@
 
   .star-row { display: flex; gap: 6px; margin: 8px 0; }
   .star {
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     color: var(--border);
     transition: color 0.15s, transform 0.15s;
@@ -506,7 +506,7 @@
     .phase-btn { display: none; }
   }
 
-  .char-count { font-size: 10px; color: var(--muted); text-align: right; margin-top: 4px; letter-spacing: 1px; }
+  .char-count { font-size: 14px; color: var(--muted); text-align: right; margin-top: 4px; letter-spacing: 1px; }
 </style>
 </head>
 <body>
@@ -580,7 +580,7 @@
         <li class="vocab-item">
           <div class="vocab-word">paranoia<span>adjective form: paranoid</span></div>
           <div>
-            <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:5px;">MY GUESS:</label>
+            <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:5px;">MY GUESS:</label>
             <input type="text" id="v1" placeholder="I think this means..." oninput="autoSave(this,'v1')">
           </div>
         </li>
@@ -710,23 +710,23 @@
       <p>Bradbury gives the house human qualities throughout the story. Find <strong style="color:var(--amber)">three examples</strong> of personification and explain what each one makes you feel or understand about the house.</p>
 
       <div style="margin-bottom:14px">
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 1 — Quote from text:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 1 — Quote from text:</label>
         <textarea id="pf1q" placeholder='"..."' rows="2" oninput="autoSave(this,'pf1q')"></textarea>
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
         <textarea id="pf1e" placeholder="This makes the house seem..." rows="2" oninput="autoSave(this,'pf1e')"></textarea>
       </div>
       <div class="divider"></div>
       <div style="margin-bottom:14px">
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 2 — Quote from text:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 2 — Quote from text:</label>
         <textarea id="pf2q" placeholder='"..."' rows="2" oninput="autoSave(this,'pf2q')"></textarea>
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
         <textarea id="pf2e" placeholder="This makes the house seem..." rows="2" oninput="autoSave(this,'pf2e')"></textarea>
       </div>
       <div class="divider"></div>
       <div>
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 3 — Quote from text:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:6px">EXAMPLE 3 — Quote from text:</label>
         <textarea id="pf3q" placeholder='"..."' rows="2" oninput="autoSave(this,'pf3q')"></textarea>
-        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
+        <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:8px 0 6px">What it makes us feel / understand:</label>
         <textarea id="pf3e" placeholder="This makes the house seem..." rows="2" oninput="autoSave(this,'pf3e')"></textarea>
       </div>
       <button class="btn" onclick="markDone('act5', this)" style="margin-top:16px">✓ Mark Complete</button>
@@ -738,7 +738,7 @@
       <p>Rate the intensity of each quality at <strong style="color:var(--amber)">three different moments</strong> in the story: the <em>beginning</em>, the <em>dog scene</em>, and the <em>fire</em>. Move the sliders as you read.</p>
 
       <div style="margin-bottom:20px">
-        <div style="font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">BEGINNING OF STORY</div>
+        <div style="font-size: 14px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">BEGINNING OF STORY</div>
         <div class="mood-track">
           <div class="mood-row"><span class="mood-label">Eerie</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m1a" oninput="updateMood('m1a','mv1a')"><span class="mood-val" id="mv1a">5</span></div>
           <div class="mood-row"><span class="mood-label">Hopeful</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m2a" oninput="updateMood('m2a','mv2a')"><span class="mood-val" id="mv2a">5</span></div>
@@ -748,7 +748,7 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <div style="font-size:11px;color:var(--amber);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">THE DOG SCENE (noon)</div>
+        <div style="font-size: 14px;color:var(--amber);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">THE DOG SCENE (noon)</div>
         <div class="mood-track">
           <div class="mood-row"><span class="mood-label">Eerie</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m1b" oninput="updateMood('m1b','mv1b')"><span class="mood-val" id="mv1b">5</span></div>
           <div class="mood-row"><span class="mood-label">Hopeful</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m2b" oninput="updateMood('m2b','mv2b')"><span class="mood-val" id="mv2b">5</span></div>
@@ -758,7 +758,7 @@
       </div>
 
       <div>
-        <div style="font-size:11px;color:var(--red);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">THE FIRE (10:00 PM)</div>
+        <div style="font-size: 14px;color:var(--red);letter-spacing:2px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px">THE FIRE (10:00 PM)</div>
         <div class="mood-track">
           <div class="mood-row"><span class="mood-label">Eerie</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m1c" oninput="updateMood('m1c','mv1c')"><span class="mood-val" id="mv1c">5</span></div>
           <div class="mood-row"><span class="mood-label">Hopeful</span><input type="range" class="mood-slider" min="0" max="10" value="5" id="m2c" oninput="updateMood('m2c','mv2c')"><span class="mood-val" id="mv2c">5</span></div>
@@ -767,7 +767,7 @@
         </div>
       </div>
 
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:16px 0 6px">Which moment hits hardest, and why?</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:16px 0 6px">Which moment hits hardest, and why?</label>
       <textarea id="moodrefl" placeholder="The most emotional moment for me was..." rows="3" oninput="autoSave(this,'moodrefl')"></textarea>
       <button class="btn" onclick="markDone('act6', this)" style="margin-top:10px">✓ Mark Complete</button>
     </div>
@@ -838,11 +838,11 @@
       <div class="card-label">Activity 9 · Reflection</div>
       <h3>Were You Right?</h3>
       <p>Go back to your <strong style="color:var(--accent)">Before Reading</strong> predictions. How close were you? What surprised you the most?</p>
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">WHAT I GOT RIGHT:</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:6px">WHAT I GOT RIGHT:</label>
       <textarea id="post1" placeholder="I correctly predicted that..." rows="2" oninput="autoSave(this,'post1')"></textarea>
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:12px 0 6px">WHAT SURPRISED ME MOST:</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:12px 0 6px">WHAT SURPRISED ME MOST:</label>
       <textarea id="post2" placeholder="I did not expect..." rows="2" oninput="autoSave(this,'post2')"></textarea>
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:12px 0 6px">WHAT I STILL WONDER:</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:12px 0 6px">WHAT I STILL WONDER:</label>
       <textarea id="post3" placeholder="I still have questions about..." rows="2" oninput="autoSave(this,'post3')"></textarea>
       <button class="btn" onclick="markDone('act9', this)" style="margin-top:10px">✓ Mark Complete</button>
     </div>
@@ -895,7 +895,7 @@
         <button class="btn btn-amber" onclick="setPrompt('promptB')">Option B: The Family's Last Day</button>
         <button class="btn btn-amber" onclick="setPrompt('promptC')">Option C: August 5, 2026</button>
       </div>
-      <div id="promptDisplay" style="font-size:13px;color:var(--amber);margin-bottom:14px;min-height:36px;font-style:italic;transition:all 0.3s"></div>
+      <div id="promptDisplay" style="font-size: 15px;color:var(--amber);margin-bottom:14px;min-height:36px;font-style:italic;transition:all 0.3s"></div>
       <textarea id="creative" placeholder="Begin writing here..." rows="8" oninput="autoSave(this,'creative'); countChars(this,'cc-creative')"></textarea>
       <div class="char-count" id="cc-creative">0 chars</div>
       <button class="btn" onclick="markDone('act11', this)" style="margin-top:8px">✓ Mark Complete</button>
@@ -906,18 +906,18 @@
       <h3>The Big Question</h3>
       <p>Bradbury wrote this story in 1950, at the height of the nuclear arms race. But students still read it more than 70 years later. Why does it still matter?</p>
 
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">WHAT IS BRADBURY WARNING US ABOUT?</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:6px">WHAT IS BRADBURY WARNING US ABOUT?</label>
       <textarea id="bq1" placeholder="Bradbury is warning us that..." rows="3" oninput="autoSave(this,'bq1')"></textarea>
 
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:12px 0 6px">HOW DOES THIS CONNECT TO THE WORLD TODAY?</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:12px 0 6px">HOW DOES THIS CONNECT TO THE WORLD TODAY?</label>
       <textarea id="bq2" placeholder="This connects to today because..." rows="3" oninput="autoSave(this,'bq2')"></textarea>
 
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:12px 0 6px">WRITE YOUR OWN THEME STATEMENT FOR THE STORY:</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:12px 0 6px">WRITE YOUR OWN THEME STATEMENT FOR THE STORY:</label>
       <textarea id="bq3" placeholder="In 'There Will Come Soft Rains,' Bradbury suggests that..." rows="2" oninput="autoSave(this,'bq3')"></textarea>
 
       <div class="divider"></div>
 
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:10px">HOW WOULD YOU RATE THIS STORY OVERALL?</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin-bottom:10px">HOW WOULD YOU RATE THIS STORY OVERALL?</label>
       <div class="star-row" id="finalStars">
         <span class="star" onclick="rateStar('finalStars',1)">★</span>
         <span class="star" onclick="rateStar('finalStars',2)">★</span>
@@ -925,7 +925,7 @@
         <span class="star" onclick="rateStar('finalStars',4)">★</span>
         <span class="star" onclick="rateStar('finalStars',5)">★</span>
       </div>
-      <label style="font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin:12px 0 6px">IN ONE SENTENCE: WHY DID YOU GIVE IT THAT RATING?</label>
+      <label style="font-size: 14px;color:var(--text);letter-spacing:1px;display:block;margin:12px 0 6px">IN ONE SENTENCE: WHY DID YOU GIVE IT THAT RATING?</label>
       <textarea id="bq4" placeholder="I gave it this rating because..." rows="2" oninput="autoSave(this,'bq4')"></textarea>
 
       <button class="btn" onclick="markDone('act12', this)" style="margin-top:10px">✓ Mark Complete</button>
@@ -987,7 +987,7 @@ function markDone(actId, btn){
   completed.add(actId);
   localStorage.setItem('sr_completed', JSON.stringify([...completed]));
   btn.textContent = '✓ Completed!';
-  btn.style.background = 'rgba(200,230,192,0.15)';
+  btn.style.background = 'rgba(255,255,255,0.15)';
   btn.disabled = true;
   updateProgress();
   showToast('Activity saved ✓');
@@ -1016,7 +1016,7 @@ document.querySelectorAll('button.btn').forEach(btn => {
   const match = btn.getAttribute('onclick') && btn.getAttribute('onclick').match(/markDone\('(\w+)'/);
   if(match && completed.has(match[1])){
     btn.textContent = '✓ Completed!';
-    btn.style.background = 'rgba(200,230,192,0.15)';
+    btn.style.background = 'rgba(255,255,255,0.15)';
     btn.disabled = true;
   }
 });
