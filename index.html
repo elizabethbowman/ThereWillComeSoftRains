@@ -507,6 +507,44 @@
   }
 
   .char-count { font-size: 14px; color: var(--muted); text-align: right; margin-top: 4px; letter-spacing: 1px; }
+
+  /* ── submit block ── */
+  .submit-block {
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.03);
+  }
+  .submit-label {
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .submit-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .btn-submit {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-size: 14px;
+    padding: 12px 32px;
+    letter-spacing: 2px;
+  }
+  .btn-submit:hover { background: rgba(255,255,255,0.08); }
+  .btn-submit.submitted { opacity: 0.6; cursor: default; }
+  .submit-status {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    min-height: 20px;
+  }
 </style>
 </head>
 <body>
@@ -664,6 +702,13 @@
         </table>
       </div>
       <button class="btn" onclick="markDone('act3', this)" style="margin-top:16px">✓ Mark Complete</button>
+    </div>
+
+    <div class="submit-block">
+      <div class="submit-label">Ready to move on?</div>
+      <p class="submit-desc">Submit your Before Reading responses, then continue to the During Reading activities.</p>
+      <button class="btn btn-submit" onclick="submitPhase('before', this)">⬆ Submit Before Reading</button>
+      <div class="submit-status" id="submit-status-before"></div>
     </div>
 
   </div>
@@ -829,6 +874,13 @@
       <button class="btn" onclick="markDone('act8', this)" style="margin-top:12px">✓ Mark Complete</button>
     </div>
 
+  <div class="submit-block">
+      <div class="submit-label">Ready to move on?</div>
+      <p class="submit-desc">Submit your During Reading responses, then continue to the After Reading activities.</p>
+      <button class="btn btn-submit" onclick="submitPhase('during', this)">⬆ Submit During Reading</button>
+      <div class="submit-status" id="submit-status-during"></div>
+    </div>
+
   </div>
 
   <!-- AFTER READING -->
@@ -929,6 +981,13 @@
       <textarea id="bq4" placeholder="I gave it this rating because..." rows="2" oninput="autoSave(this,'bq4')"></textarea>
 
       <button class="btn" onclick="markDone('act12', this)" style="margin-top:10px">✓ Mark Complete</button>
+    </div>
+
+    <div class="submit-block">
+      <div class="submit-label">All done?</div>
+      <p class="submit-desc">Submit your After Reading responses to complete the activity.</p>
+      <button class="btn btn-submit" onclick="submitPhase('after', this)">⬆ Submit After Reading</button>
+      <div class="submit-status" id="submit-status-after"></div>
     </div>
 
     <div style="text-align:center; padding-top:20px">
@@ -1072,6 +1131,54 @@ document.querySelectorAll('#noticeList li').forEach(li=>{
     li.classList.add('checked');
   }
 });
+
+// ── submit phase ─────────────────────────────────────────────────────────────
+const submitState = JSON.parse(localStorage.getItem('sr_submitted')||'{}');
+
+// Restore submitted state on load
+Object.keys(submitState).forEach(phase => {
+  const btn = document.querySelector(`[onclick="submitPhase('${phase}', this)"]`);
+  const status = document.getElementById('submit-status-'+phase);
+  if(btn && submitState[phase]) {
+    btn.textContent = '✓ Submitted';
+    btn.classList.add('submitted');
+    btn.disabled = true;
+    if(status) status.textContent = 'Submitted on ' + submitState[phase];
+  }
+});
+
+function submitPhase(phase, btn) {
+  // Collect all responses from the phase panel
+  const panel = document.getElementById('panel-' + phase);
+  const fields = panel.querySelectorAll('textarea, input[type="text"]');
+  let summary = '';
+  fields.forEach(el => {
+    if(el.value.trim()) {
+      summary += (el.placeholder || el.id) + ':
+' + el.value.trim() + '
+
+';
+    }
+  });
+
+  // Copy to clipboard
+  if(summary) {
+    navigator.clipboard.writeText(summary).catch(() => {});
+  }
+
+  // Record submission timestamp
+  const timestamp = new Date().toLocaleString();
+  submitState[phase] = timestamp;
+  localStorage.setItem('sr_submitted', JSON.stringify(submitState));
+
+  // Update UI
+  btn.textContent = '✓ Submitted';
+  btn.classList.add('submitted');
+  btn.disabled = true;
+  const status = document.getElementById('submit-status-' + phase);
+  if(status) status.textContent = 'Submitted on ' + timestamp + ' · Responses copied to clipboard';
+  showToast('Responses submitted ✓');
+}
 </script>
 </body>
 </html>
