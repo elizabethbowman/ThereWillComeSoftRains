@@ -1033,7 +1033,14 @@ function switchPhase(phase){
 }
 
 const totalActs = 12;
-let completed = new Set(JSON.parse(localStorage.getItem('sr_completed')||'[]'));
+// Safe localStorage wrapper for sandboxed environments
+const store = {
+  _data: {},
+  getItem(k){ try { return store.getItem(k); } catch(e){ return this._data[k]||null; } },
+  setItem(k,v){ try { store.setItem(k,v); } catch(e){ this._data[k]=v; } }
+};
+
+let completed = new Set(JSON.parse(store.getItem('sr_completed')||'[]'));
 
 function updateProgress(){
   const n = completed.size;
@@ -1044,7 +1051,7 @@ function updateProgress(){
 
 function markDone(actId, btn){
   completed.add(actId);
-  localStorage.setItem('sr_completed', JSON.stringify([...completed]));
+  store.setItem('sr_completed', JSON.stringify([...completed]));
   btn.textContent = '✓ Completed!';
   btn.style.background = 'rgba(255,255,255,0.15)';
   btn.disabled = true;
@@ -1054,7 +1061,7 @@ function markDone(actId, btn){
 
 let saveTimer;
 function autoSave(el, key){
-  localStorage.setItem('sr_'+key, el.value);
+  store.setItem('sr_'+key, el.value);
   clearTimeout(saveTimer);
   saveTimer = setTimeout(()=>showToast('Auto-saved'), 800);
 }
@@ -1067,7 +1074,7 @@ function showToast(msg){
 }
 
 document.querySelectorAll('textarea[id], input[type="text"][id]').forEach(el => {
-  const saved = localStorage.getItem('sr_'+el.id);
+  const saved = store.getItem('sr_'+el.id);
   if(saved) el.value = saved;
 });
 
@@ -1093,11 +1100,11 @@ function countChars(el, countId){
   if(el) countChars(el, 'cc-'+(id.startsWith('pred-') ? id.replace('pred-','') : id));
 });
 
-const starState = JSON.parse(localStorage.getItem('sr_stars')||'{}');
+const starState = JSON.parse(store.getItem('sr_stars')||'{}');
 
 function rateStar(groupId, val){
   starState[groupId] = val;
-  localStorage.setItem('sr_stars', JSON.stringify(starState));
+  store.setItem('sr_stars', JSON.stringify(starState));
   renderStars(groupId, val);
 }
 
@@ -1122,10 +1129,10 @@ function setPrompt(key){
 function toggleCheck(li){
   li.classList.toggle('checked');
   const checked = [...document.querySelectorAll('#noticeList li.checked')].map(l=>l.textContent.trim());
-  localStorage.setItem('sr_checklist', JSON.stringify(checked));
+  store.setItem('sr_checklist', JSON.stringify(checked));
 }
 
-const savedChecks = JSON.parse(localStorage.getItem('sr_checklist')||'[]');
+const savedChecks = JSON.parse(store.getItem('sr_checklist')||'[]');
 document.querySelectorAll('#noticeList li').forEach(li=>{
   if(savedChecks.some(c => li.textContent.trim().startsWith(c.slice(0,20)))){
     li.classList.add('checked');
@@ -1133,7 +1140,7 @@ document.querySelectorAll('#noticeList li').forEach(li=>{
 });
 
 // ── submit phase ─────────────────────────────────────────────────────────────
-const submitState = JSON.parse(localStorage.getItem('sr_submitted')||'{}');
+const submitState = JSON.parse(store.getItem('sr_submitted')||'{}');
 
 // Restore submitted state on load
 Object.keys(submitState).forEach(phase => {
@@ -1169,7 +1176,7 @@ function submitPhase(phase, btn) {
   // Record submission timestamp
   const timestamp = new Date().toLocaleString();
   submitState[phase] = timestamp;
-  localStorage.setItem('sr_submitted', JSON.stringify(submitState));
+  store.setItem('sr_submitted', JSON.stringify(submitState));
 
   // Update UI
   btn.textContent = '✓ Submitted';
